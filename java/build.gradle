@@ -1,0 +1,57 @@
+plugins {
+  id 'java'
+  id 'checkstyle'
+  id 'application'
+  id 'maven-publish'
+}
+
+group = 'cn.ac.bmi.cloudphr'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.apache.commons:commons-lang3:3.12.0'
+  compileOnly 'org.projectlombok:lombok:1.18.26'
+  annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+  testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+  testImplementation 'junit:junit:4.13.2'
+}
+
+checkstyle {
+  toolVersion = '8.39'
+  configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+  configProperties = ["suppressionFile": rootProject.file('config/checkstyle/suppressions.xml')]
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = "https://maven.pkg.github.com/huajianmao/mapper"
+      credentials {
+        username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+        password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+      }
+    }
+  }
+
+  publications {
+    gpr(MavenPublication) {
+      from(components.java)
+    }
+  }
+}
+
+mainClassName = "cn.ac.bmi.cloudphr.mapper.Runner"
+
