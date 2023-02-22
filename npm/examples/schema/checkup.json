@@ -1,0 +1,58 @@
+[
+  {
+    "name": "index2checkup",
+    "source": "Index",
+    "model": "Checkup",
+    "mappings": [
+      { "from": "nation", "to": "content.primaryInfo.nationality" },
+
+      { "from": "健康体检", "action": "constant", "to": "header.meta.type" },
+
+      { "from": "depts", "to": "content.examination.depts", "action": "many2many", "actRef": "dept2Department" },
+      { "from": "questionnaire", "to": "content.questionnaire", "actRef": "questionnaire2Questionnaire" },
+      { "from": "depts", "to": "content.psychology", "action": "many2one", "actRef": "", "cond": [] }
+    ]
+  },
+  {
+    "name": "dept2Department",
+    "source": "Department",
+    "model": "Department",
+    "mappings": [
+      { "from": "dept_name", "to": "name" },
+      { "from": "groups", "to": "results", "action": "many2many", "actRef": "group2result" }
+    ]
+  },
+  {
+    "name": "group2result",
+    "source": "GroupItem",
+    "model": "Result",
+    "mappings": [
+      { "from": "group_name", "to": "name" },
+      { "from": "items", "to": "items", "action": "many2many", "actRef": "item2item" }
+    ]
+  },
+  {
+    "name": "item2item",
+    "source": "Item",
+    "model": "Item",
+    "mappings": [{ "from": "item_name", "to": "name" }]
+  },
+  {
+    "name": "questionnaire2Questionnaire",
+    "source": "Questionnaire",
+    "model": "Questionnaire",
+    "mappings": [
+      { "from": "health", "to": "healthStatus.name" },
+      { "from": "__THIS__", "to": "diseases", "action": "one2many", "actRef": "diabetse2diseases" }
+    ]
+  },
+  {
+    "name": "diabetse2diseases",
+    "source": "Questionnaire",
+    "model": "History",
+    "mappings": [
+      { "from": "糖尿病", "action": "constant", "to": "disease.name" },
+      { "from": "diabetse_drug_flag", "to": "haveDrugs.name" }
+    ]
+  }
+]
