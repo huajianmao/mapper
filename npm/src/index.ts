@@ -26,6 +26,11 @@ const convert = <F extends object, T extends object>(
   const mapper = mappers[name];
 
   mapper?.mappings?.forEach((mapping) => {
+    const fromValue = getFromValue(from, mapping);
+    if (_.isEmpty(fromValue)) {
+      return;
+    }
+
     if (!mapping.action) {
       if (mapping.actRef) {
         mapping.action = 'one2one';
@@ -39,7 +44,6 @@ const convert = <F extends object, T extends object>(
         _.set(to, mapping.to, mapping.from);
         break;
       case 'direct':
-        const fromValue = getFromValue(from, mapping);
         _.set(to, mapping.to, fromValue);
         break;
       case 'one2one':
