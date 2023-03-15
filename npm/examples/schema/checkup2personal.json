@@ -1,0 +1,13 @@
+[
+  {
+    "name": "checkup2personal",
+    "source": "Checkup",
+    "model": "PersonalInfo",
+    "mappings": [
+      { "from": "header.index.idNo", "to": "id" },
+      { "from": "header", "to": "header" },
+      { "from": "content.primaryInfo", "to": "content.primaryInfo" },
+      { "from": "content.presentPersonalInfo", "to": "content.presentPersonalInfo" }
+    ]
+  }
+]

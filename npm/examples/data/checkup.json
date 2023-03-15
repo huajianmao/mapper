@@ -1,66 +1,53 @@
 [
   {
-    "nation": "汉",
-    "depts": [
-      {
-        "dept_name": "dept_name1",
-        "groups": [
-          {
-            "group_name": "group_name11",
-            "items": [{ "item_name": "item_name111" }, { "item_name": "item_name112" }]
-          },
-          {
-            "group_name": "group_name12",
-            "items": [{ "item_name": "item_name121" }, { "item_name": "item_name122" }]
-          }
-        ]
+    "header": {
+      "index": {
+        "idNo": "430105199902190847",
+        "name": "张老四",
+        "gender": "女",
+        "birthdate": "1999-07-19"
       },
-      {
-        "dept_name": "dept_name2",
-        "groups": [
-          {
-            "group_name": "group_name21",
-            "items": [{ "item_name": "item_name211" }, { "item_name": "item_name212" }]
-          },
-          {
-            "group_name": "group_name22",
-            "items": [{ "item_name": "item_name221" }, { "item_name": "item_name222" }]
-          }
-        ]
+      "meta": {
+        "date": "2023-02-01",
+        "uuid": "Q0E303ADCE364EABA42626B2C5B40B20",
+        "filler": "填写人员",
+        "facility": "医院名称",
+        "source": "健康体检",
+        "business": {
+          "code": "B03.01.v1",
+          "name": "健康体检记录"
+        }
       }
-    ],
-    "questionnaire": { "health": "健康", "diabetse_drug_flag": "已用药" }
-  },
-  {
-    "nation": "回",
-    "depts": [
-      {
-        "dept_name": "dept1",
-        "groups": [
-          {
-            "group_name": "group11",
-            "items": [{ "item_name": "item111" }, { "item_name": "item112" }]
-          },
-          {
-            "group_name": "group12",
-            "items": [{ "item_name": "item121" }, { "item_name": "item122" }]
+    },
+    "content": {
+      "primaryInfo": {
+        "hometown": "河北省",
+        "bloodType": {
+          "abo": {
+            "name": "O型"
           }
-        ]
+        },
+        "birthplace": "河北省",
+        "nationality": "汉族",
+        "medicalAccount": "430105199902190847"
       },
-      {
-        "dept_name": "dept2",
-        "groups": [
-          {
-            "group_name": "group21",
-            "items": [{ "item_name": "item211" }, { "item_name": "item212" }]
-          },
-          {
-            "group_name": "group22",
-            "items": [{ "item_name": "item221" }, { "item_name": "item222" }]
-          }
-        ]
+      "presentPersonalInfo": {
+        "rank": {
+          "name": "无"
+        },
+        "phone": "18666666666",
+        "topUnit": {
+          "code": "H",
+          "name": "国务院"
+        },
+        "workUnit": "卫健委",
+        "maritalStatus": {
+          "name": "已婚"
+        },
+        "personnelCategory": {
+          "name": "公务员"
+        }
       }
-    ],
-    "questionnaire": { "health": "不健康", "diabetse_drug_flag": "未用药" }
+    }
   }
 ]

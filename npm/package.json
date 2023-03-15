@@ -1,6 +1,6 @@
 {
   "name": "@huajianmao/mapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convert json object into another one with different structure",
   "type": "module",
   "source": "src/index.ts",

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "checkup2personal",
+    "source": "Checkup",
+    "model": "PersonalInfo",
+    "mappings": [
+      { "from": "骨折", "action": "constant", "to": "constant" },
+      { "from": "header.index.idNo", "to": "id" }
+    ]
+  }
+]

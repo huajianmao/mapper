@@ -27,6 +27,7 @@ const convert = <F extends object, T extends object>(
 
   mapper?.mappings?.forEach((mapping) => {
     const fromValue = getFromValue(from, mapping);
+
     if (_.isEmpty(fromValue)) {
       return;
     }
@@ -126,7 +127,11 @@ const many2many = <F extends object, T extends object>(
 };
 
 const getFromValue = <F extends object>(from: F, mapping: Mapping) => {
-  return mapping.from === '__THIS__' ? from : _.get(from, mapping.from);
+  if (mapping.action !== 'constant') {
+    return mapping.from === '__THIS__' ? from : _.get(from, mapping.from);
+  } else {
+    return mapping.from;
+  }
 };
 
 declare type MapperIndex = { [key: string]: Mapper };
