@@ -1,5 +1,13 @@
 import _ from 'lodash';
 
+/**
+ * Converts an object from one format to another using mappers.
+ *
+ * @param from The source object to convert from.
+ * @param to The target object to convert to.
+ * @param mappers The mapping index to use for the conversion.
+ * @param name The name of the mapping index to use for the conversion.
+ */
 export const convert = <F extends object, T extends object>(
   from: F,
   to: T,
@@ -23,7 +31,7 @@ export const convert = <F extends object, T extends object>(
   });
 };
 
-const actions: MappingHandler<any, any> = {
+export const actions: MappingHandler<any, any> = {
   constant: (mapping, from, to) => {
     _.set(to, mapping.to, mapping.from);
   },
